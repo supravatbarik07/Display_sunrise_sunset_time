@@ -63,7 +63,7 @@ async function riseset(){
             throw new console.error('failed to fetch the data');
         }
         const data= await response.json();
-        console.log(data);
+        //console.log(data);
         displayResult(city.name,selectDate,data);
     }
     catch(error){
@@ -84,16 +84,25 @@ function displayResult(cityName,date,results){
 
     const sunriseDiv=document.getElementById('sunrise');
     const sunsetDiv=document.getElementById('sunset');
+    
+    sunriseDiv.classList.add('sunrise-animate')
+    sunsetDiv.classList.add('sunset-animate')
 
-    sunriseDiv.innerHTML=`<img src="./assets/images/sunrise.png" alt="sunrise">
-    <h2>Sunrise  times for ${cityName} on ${date}</h2>
-    <p><strong>Sunrise: </strong> ${sunriseTime.toLocaleString()}</p>`
+    sunriseDiv.innerHTML=
+    `<img src="./assets/images/sunrise.png" alt="sunrise" loading='lazy'>
+    <h2> ${cityName} </h2>
+    <p><strong>SunRise: </strong> ${sunriseTime.toLocaleString()}</p>`
 
-    sunsetDiv.innerHTML=`<img src="./assets/images/sunset.png" alt="sunset">
-    <h2>Sunset  times for ${cityName} on ${date}</h2>
-    <p><strong>Sunrise: </strong> ${sunsetime.toLocaleString()}</p>`
+    sunsetDiv.innerHTML=
+    `<img src="./assets/images/sunset.png" alt="sunset" loading='lazy'>
+    <h2> ${cityName} </h2>
+    <p><strong>SunSet: </strong> ${sunsetime.toLocaleString()}</p>`
 
-    // resultDiv.innerHTML=`<h2>Sunrise and sunset times for ${cityName} on ${date}</h2>
-    // <p><strong>Sunrise: </strong> ${sunriseTime.toLocaleString()}</p>
-    // <p><strong>Sunset: </strong> ${sunsetime.toLocaleString()}</p>`;
+    //Remove the animation classes after the animation ends
+    sunriseDiv.addEventListener('animationend',()=>
+    sunriseDiv.classList.remove('sunrise-animate'),
+{true:true});  /*{true:once}:- when want to execute once the event function*/
+    
+     sunsetDiv.addEventListener('animationend',()=>sunsetDiv.classList.remove('sunset-animate'),
+    {true:true});
 }
