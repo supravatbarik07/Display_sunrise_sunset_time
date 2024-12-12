@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunSet and SunRise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sunset and SunRise Time</h1>
+   <div class="box">
+    <label for="dropdowncity" class="city">Select A City</label>
+   <select name="dropdowncity" id="dropdowncity">
+    <option value="" disabled selected>Choose A option</option>
+   </select><br>
+   <label for="">choose time</label>
+   <input type="date" placeholder="choose a date" id="selectdate">
+   </div>
+   <button id="gettimebtn">Get Time</button>
+    </div>
+    <div class="display-result">
+        <div id="sunrise" class="resultbox" style="margin-top: 20px;"></div>
+       <div id="sunset" class="resultbox" style="margin-top: 20px;"></div>
+       </div>
+   <script src="index.js"></script>
+</body>
+</html>

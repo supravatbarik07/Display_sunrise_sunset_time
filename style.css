@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0
+}
+body{
+    background-image: url(./assets/images/Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+.container{
+    margin:0 auto;
+    width: 90%;
+    max-width: 600px;
+    /* border: 1px solid red; */
+    text-align: center;
+    margin-top: 100px;
+}
+.container h1{
+        font-size: 3rem; /* Adjust font size as needed */
+        font-weight: bold; /* Optional: makes the text bold */
+        background: linear-gradient(to right, #252424, #d6cfca); /* Define the gradient */
+        -webkit-background-clip: text; /* Clips the background to the text */
+        -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container label{
+   color: #5c5b5a;
+   font-size: 1.5em;
+   font-weight: 900;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    top: 30px;
+}
+.box input{
+    background: transparent;
+    color: #5c5b5a;
+    font-size: 1.1em;
+}
+.box select{
+    background: transparent;
+    color: #5c5b5a;
+    font-size: 1em;
+    font-weight: 700;
+    border: solid 2px #5c5b5a ;
+    width: 30;
+}
+
+.container button{
+    position: relative;
+    top: 300px;
+    width: 150px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: transparent;
+    color: #f07c09;
+    font-size: 20px;
+    font-weight: 700;
+    border: 2px solid #5c5b5a;
+    transition: all 0.3S ease-in-out;
+}
+button:hover{
+    background-color: #f07c09;
+    color: #d6cfca;
+    border: none;
+    transform: scale(1.2);
+}
+.resultbox{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #5c5b5a;
+    /* border: 1px solid red; */
+}
+.resultbox img{
+    height: 70px;
+    width:50px;
+}
+.display-result{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 90px;
+}
+#sunrise{
+    
+}
