@@ -95,6 +95,30 @@ button:hover{
     justify-content: space-around;
     margin-top: 90px;
 }
+#loader{
+  width: 80px;
+  height: 80px;
+  border: 5px solid #5c5b5a;
+  border-top: 1px dotted greenyellow;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: none;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  z-index: 1000;
+}
+.invisible{
+  display: none;
+}
+@keyframes spin{
+  0%{
+      transform: rotate(0deg)
+  }
+  100%{
+      transform: rotate(360deg)
+  }
+}
 @keyframes slide-up {
     from {
       transform: translateY(100%);

@@ -35,19 +35,35 @@ cities.forEach((city,index)=>{
 
 })
 
+function addAnimation(){
+    document.querySelector('loader-container').classList.remove('invisible');
+}
+function removeAnimation(){
+    document.querySelector('loader-container').classList.add('invisible');
+}
 const gettimebtn=document.getElementById('gettimebtn')
-
+g
 async function riseset(){
     const selectDate=document.getElementById('selectdate').value;
+    const checkingDate= new Date();
+    const currentDate=checkingDate.toISOString().split('T')[0]
+    
     
     const selectedIndex=cityDropdown.value;
     if(!selectedIndex){
         alert('please select an option')
+        document.getElementById('loader').style.display='none';
     }
     const city=cities[selectedIndex]
     if(!selectDate){
+        document.getElementById('loader').style.display='none';
         alert('please select an date')
     }
+    if (selectDate>currentDate){
+        alert('your Date is should be less then or equals to today date')
+        return
+    }
+    addAnimation();
     const url=`https://sunrise-sunset-times.p.rapidapi.com/getSunriseAndSunset?date=${selectDate}&latitude=${city.latitude}&longitude=${city.longitude}&timeZoneId=${encodeURIComponent(city.timeZoneId)}`
     try{
         const response=await fetch(url,{
@@ -70,11 +86,15 @@ async function riseset(){
         console.error(error);
         alert("error fetching data please try again")
     }
+    finally{
+        removeAnimation();
+    }
 }
 
 gettimebtn.addEventListener('click',riseset);
 
 function displayResult(cityName,date,results){
+    
     const sunrise=results.sunrise.split('[')[0];//split the number
     //console.log(sunrise);
     const sunriseTime=new Date(sunrise);
