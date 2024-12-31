@@ -95,11 +95,17 @@ button:hover{
     justify-content: space-around;
     margin-top: 90px;
 }
-#loader{
+.loader-container{
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    z-index: 1000;
+}
+.loader{
   width: 80px;
   height: 80px;
-  border: 5px solid #5c5b5a;
-  border-top: 1px dotted greenyellow;
+  /* border: 5px solid #5c5b5a; */
+  border-top: 5px dotted greenyellow;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   display: none;
@@ -109,7 +115,13 @@ button:hover{
   z-index: 1000;
 }
 .invisible{
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.visible{
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 @keyframes spin{
   0%{

@@ -36,13 +36,18 @@ cities.forEach((city,index)=>{
 })
 
 function addAnimation(){
-    document.querySelector('loader-container').classList.remove('invisible');
+    document.querySelector('.loader').style.display = 'block';
+    document.querySelector('.loader-container').classList.remove('invisible');
+    document.querySelector('.loader-container').classList.add('visible');
+
 }
 function removeAnimation(){
-    document.querySelector('loader-container').classList.add('invisible');
+    document.querySelector('.loader').style.display = 'block';
+    document.querySelector('.loader-container').classList.add('invisible');
+    document.querySelector('.loader-container').classList.remove('visible');
 }
 const gettimebtn=document.getElementById('gettimebtn')
-g
+
 async function riseset(){
     const selectDate=document.getElementById('selectdate').value;
     const checkingDate= new Date();
@@ -51,15 +56,16 @@ async function riseset(){
     
     const selectedIndex=cityDropdown.value;
     if(!selectedIndex){
+        removeAnimation();
         alert('please select an option')
-        document.getElementById('loader').style.display='none';
     }
     const city=cities[selectedIndex]
     if(!selectDate){
-        document.getElementById('loader').style.display='none';
+        removeAnimation();
         alert('please select an date')
     }
     if (selectDate>currentDate){
+        removeAnimation();
         alert('your Date is should be less then or equals to today date')
         return
     }
